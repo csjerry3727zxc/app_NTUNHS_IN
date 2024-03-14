@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>MainActivity.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008000; font-weight: bold;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.example.a0314
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+import com.example.a0314.databinding.ActivityMainBinding
+
+<span class="s0">class </span>MainActivity : AppCompatActivity() {
+
+    private lateinit <span class="s0">var </span>binding: ActivityMainBinding
+
+    override <span class="s0">fun </span>onCreate(savedInstanceState: Bundle?) {
+        <span class="s0">super</span>.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnSubmit.setOnClickListener {
+            <span class="s0">val </span>name = binding.etName.text.toString()
+            <span class="s0">val </span>password = binding.etPassword.text.toString()
+            <span class="s0">val </span>nickname = binding.etNickname.text.toString()
+            <span class="s0">val </span>email = binding.etEmail.text.toString()
+            <span class="s0">val </span>phone = binding.etPhone.text.toString()
+            <span class="s0">val </span>dob = binding.etDob.text.toString()
+            <span class="s0">val </span>gender = binding.etGender.text.toString()
+            <span class="s0">val </span>address = binding.etAddress.text.toString()
+
+            <span class="s0">val </span>userInfo = <span class="s2">&quot;Name: </span><span class="s0">$</span>name<span class="s0">\n</span><span class="s2">...&quot;</span>
+
+            AlertDialog.Builder(<span class="s0">this</span>)
+                .setTitle(<span class="s2">&quot;User Information&quot;</span>)
+                .setMessage(userInfo)
+                .setPositiveButton(<span class="s2">&quot;OK&quot;</span>, <span class="s0">null</span>)
+                .show()
+        }
+    }
+}</pre>
+</body>
+</html>
